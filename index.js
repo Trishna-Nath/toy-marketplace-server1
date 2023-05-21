@@ -40,10 +40,12 @@ async function run() {
     })
 
 
-    const sweetCollection = client.db('toysMarket').collection('sweet');
+    const sweetCollection = client.db('toyMarket1').collection('sweet');
 
     app.get('/sweet', async(req,res) =>{
-      const cursor = sweetCollection.find();
+
+      const query = {};
+      const cursor = sweetCollection.find(query);
       const result = await cursor.toArray();
       res.send(result);
     })
